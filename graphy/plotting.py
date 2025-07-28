@@ -70,7 +70,9 @@ def plot_metrics(mod):
 
     print(f">> Training Summary:")
     print(f"   - Total epochs: {len(mod.history.get('loss', []))}")
-    print(f"   - Validation data: {'Yes' if has_val_loss or has_val_accuracy else 'No'}")
+    print(
+        f"   - Validation data: {'Yes' if has_val_loss or has_val_accuracy else 'No'}"
+    )
     if has_loss:
         print(f"   - Final training loss: {mod.history['loss'][-1]:.4f}")
     if has_val_loss:
