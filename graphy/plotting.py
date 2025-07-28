@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+from typing import Any
 
 
-def plot_metrics(mod):
+def plot_metrics(mod: Any) -> None:
     sns.set_style("darkgrid")
     sns.set_palette("muted")
     sns.set_context("notebook")
