@@ -1,81 +1,32 @@
 # ml-graphy
 
-A Python package for plotting machine learning training metrics with automatic detection of validation data and clean, publication-ready visualizations.
+A simple and elegant Python package for visualizing machine learning training metrics. `ml-graphy` automatically detects training and validation data to generate clean, publication-ready plots with just one line of code.
 
-## Features
+## Key Features
 
-- 📊 Automatic detection of training and validation metrics
-- 🎨 Clean, publication-ready plots using seaborn styling
-- 📈 Support for loss and accuracy metrics
-- 🔍 Automatic handling of missing data
-- 📋 Training summary statistics
+- **Automatic Metric Detection**: Intelligently finds `loss`, `accuracy`, `val_loss`, and `val_accuracy` in your model's history.
+- **Publication-Ready Plots**: Creates beautiful, clean plots using Seaborn styling.
+- **Simple API**: Generate insightful visualizations with a single function call.
+- **Training Summary**: Prints a concise summary of final training and validation metrics.
 
 ## Installation
+
+Install `ml-graphy` directly from PyPI:
 
 ```bash
 pip install ml-graphy
 ```
 
-This will automatically install all required dependencies:
-- `numpy>=1.20.0`
-- `matplotlib>=3.5.0` 
-- `seaborn>=0.11.0`
-
-### Development Installation
-```bash
-git clone https://github.com/Prasoon-Rai/Graphy.git
-cd Graphy
-pip install -e ".[dev]"
-```
+This will automatically install the required dependencies: `matplotlib` and `seaborn`.
 
 ## Quick Start
 
+Using `ml-graphy` is straightforward. Just import the `plot_metrics` function and pass it your trained model object that contains a `history` attribute.
+
 ```python
-from graphy import plot_metrics
+from graphy.plotting import plot_metrics
 
-# Assuming you have a trained model with history
-# model.history = {
-#     'loss': [0.5, 0.4, 0.3, 0.2],
-#     'accuracy': [0.8, 0.85, 0.9, 0.95],
-#     'val_loss': [0.6, 0.45, 0.35, 0.25],
-#     'val_accuracy': [0.75, 0.8, 0.85, 0.9]
-# }
-
-plot_metrics(model)
-```
-
-This will automatically:
-- Detect available metrics (loss, accuracy)
-- Check for validation data
-- Create side-by-side plots
-- Display training summary statistics
-
-## Publishing to PyPI
-
-This package uses GitHub releases for automated publishing. See [RELEASE.md](RELEASE.md) for instructions.
-
-### Quick Release Process
-1. Update version in `pyproject.toml`
-2. Commit and push changes
-3. Create a GitHub release
-4. GitHub Actions automatically publishes to PyPI
-
-## Requirements
-
-- Python >= 3.8
-- numpy >= 1.20.0
-- matplotlib >= 3.5.0
-- seaborn >= 0.11.0
-
-All dependencies are automatically installed when you install ml-graphy.
-
-## Testing
-
-Test the package after installation:
-```python
-from graphy import plot_metrics
-
-# Create a mock model with training history
+# Create a mock model with a history attribute
 class MockModel:
     def __init__(self):
         self.history = {
@@ -85,31 +36,17 @@ class MockModel:
             'val_accuracy': [0.55, 0.65, 0.75, 0.8, 0.85]
         }
 
+# Create an instance and plot the metrics
 model = MockModel()
 plot_metrics(model)
 ```
 
+This will generate and display side-by-side plots for loss and accuracy.
+
+## What's Next?
+
+The current version of `ml-graphy` focuses on simplicity and core functionality. Future releases will introduce more advanced features to provide greater flexibility and insight into your model's performance. We are actively working on expanding the library's capabilities to support a wider range of visualization needs.
+
 ## License
 
-MIT License - see LICENSE file for details.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## Development
-
-For development, install with:
-```bash
-pip install -e ".[dev]"
-```
-
-This includes additional tools:
-- pytest for testing
-- black for code formatting
-- flake8 for linting
-- mypy for type checking
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
