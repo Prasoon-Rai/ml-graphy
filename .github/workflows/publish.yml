@@ -26,7 +26,7 @@ jobs:
     
     - name: Test package import
       run: |
-        python -c "from graphy import plot_metrics; print('Import successful')"
+        python -c "from mlgraphy import plot_metrics; print('Import successful')"
 
   deploy:
     needs: test

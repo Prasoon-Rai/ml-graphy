@@ -45,7 +45,7 @@ Homepage = "https://github.com/Prasoon-Rai/ml-graphy"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["graphy*"]
+include = ["mlgraphy*"]
 exclude = ["test*"]
 
 [tool.black]

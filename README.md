@@ -24,7 +24,7 @@ This will automatically install the required dependencies: `matplotlib` and `sea
 Using `ml-graphy` is straightforward. Just import the `plot_metrics` function and pass it your trained model object that contains a `history` attribute.
 
 ```python
-from graphy.plotting import plot_metrics
+from mlgraphy.plotting import plot_metrics
 
 # Create a mock model with a history attribute
 class MockModel:
