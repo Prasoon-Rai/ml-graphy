@@ -1,23 +1,20 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 def plot_metrics(mod):
-    # Set up the plotting style
     sns.set_style("darkgrid")
     sns.set_palette("muted")
     sns.set_context("notebook")
     
-    # Automatically detect if validation data exists
     has_val_loss = 'val_loss' in mod.history
     has_val_accuracy = 'val_accuracy' in mod.history
     has_loss = 'loss' in mod.history
     has_accuracy = 'accuracy' in mod.history
     
-    # Create subplots
     fig, axes = plt.subplots(1, 2, figsize=(15, 5))
     fig.suptitle('Training Metrics', fontsize=16, fontweight='bold')
     
-    # Plot Loss
     if has_loss:
         axes[0].plot(mod.history['loss'], label='Training Loss', linewidth=2)
         if has_val_loss:
@@ -35,7 +32,6 @@ def plot_metrics(mod):
         axes[0].text(0.5, 0.5, 'No loss data available', ha='center', va='center', transform=axes[0].transAxes)
         axes[0].set_title('Loss - No Data')
     
-    # Plot Accuracy
     if has_accuracy:
         axes[1].plot(mod.history['accuracy'], label='Training Accuracy', linewidth=2)
         if has_val_accuracy:
@@ -56,7 +52,6 @@ def plot_metrics(mod):
     plt.tight_layout()
     plt.show()
     
-    # Print summary information
     print(f">> Training Summary:")
     print(f"   - Total epochs: {len(mod.history.get('loss', []))}")
     print(f"   - Validation data: {'Yes' if has_val_loss or has_val_accuracy else 'No'}")
