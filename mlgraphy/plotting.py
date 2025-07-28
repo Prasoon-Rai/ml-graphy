@@ -81,4 +81,6 @@ def plot_metrics(mod: Any) -> None:
     if has_accuracy:
         print(f"   - Final training accuracy: {mod.history['accuracy'][-1] * 100:.2f}%")
     if has_val_accuracy:
-        print(f"   - Final validation accuracy: {mod.history['val_accuracy'][-1] * 100:.2f}%")
+        print(
+            f"   - Final validation accuracy: {mod.history['val_accuracy'][-1] * 100:.2f}%"
+        )
