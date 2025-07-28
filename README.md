@@ -24,21 +24,11 @@ This will automatically install the required dependencies: `matplotlib` and `sea
 Using `ml-graphy` is straightforward. Just import the `plot_metrics` function and pass it your trained model object that contains a `history` attribute.
 
 ```python
-from mlgraphy.plotting import plot_metrics
+from graphy.plotting import plot_metrics
 
-# Create a mock model with a history attribute
-class MockModel:
-    def __init__(self):
-        self.history = {
-            'loss': [0.8, 0.6, 0.4, 0.3, 0.2],
-            'accuracy': [0.6, 0.7, 0.8, 0.85, 0.9],
-            'val_loss': [0.9, 0.7, 0.5, 0.4, 0.3],
-            'val_accuracy': [0.55, 0.65, 0.75, 0.8, 0.85]
-        }
+mod = model.fit(x = train_sample, y = train_label, epochs=100, validation_split=0.2, batch_size=5, shuffle=True, verbose=0)
 
-# Create an instance and plot the metrics
-model = MockModel()
-plot_metrics(model)
+plot_metrics(mod)
 ```
 
 This will generate and display side-by-side plots for loss and accuracy.
